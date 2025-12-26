@@ -32,9 +32,9 @@
   const PI_BASE = "https://winona-liable-nonclamorously.ngrok-free.dev/";
 
   const PRODUCTS = [
-    { id: "coke",  name: "Coca Cola",      price: 5 },
-    { id: "chips", name: "Oman Chips",     price: 17 },
-    { id: "choco", name: "Feastables", price: 18.9 }
+    { id: "kitkat",  name: "KitKat",      price: 5 },
+    { id: "mms", name: "M&Ms",     price: 17 },
+    { id: "chips", name: "Chips", price: 18.9 }
   ];
 
   const itemsDiv = document.getElementById('items');
@@ -45,13 +45,13 @@
         card.className = 'card';
         
         let imageHtml = '';
-        if (p.id === 'coke') {
+        if (p.id === 'kitkat') {
              imageHtml = '<img src="cola.png" alt="Cola Bottle" class="product-image">';
          }
-         if (p.id === 'chips') {
+         if (p.id === 'mms') {
              imageHtml = '<img src="th.png" alt="Oman Chips" class="product-image">';
          }
-         if (p.id === 'choco') {
+         if (p.id === 'chips') {
              imageHtml = '<img src="choco.jpeg" alt="Feastables" class="product-image">';
          } 
 
@@ -97,4 +97,5 @@
         </ul>
     </footer>
 </body>
+
 </html>
