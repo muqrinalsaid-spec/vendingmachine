@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vending Machine</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <center>
+    <nav class="taskbar">
+        <ul>
+            <li><a href="index.html" class="active">Vending</a></li>
+            <li><a href="collab.html">Collaborators</a></li>
+        </ul>
+    </nav>
+    </center>
+  <h1>Vending Machine</h1>
+
+  
+
+  <div class="grid" id="items"></div>
+  <div id="status"></div>
+  <div id="qr-code-container">
+        <div id="qr-code-box">
+            <p>Scan to Pay</p>
+            <img src="qr.png" alt="Payment QR Code" id="qr-image">
+            
+        </div>
+  
+<script>
+  const PI_BASE = "https://winona-liable-nonclamorously.ngrok-free.dev/";
+
+  const PRODUCTS = [
+    { id: "coke",  name: "Coca Cola",      price: 5 },
+    { id: "chips", name: "Oman Chips",     price: 17 },
+    { id: "choco", name: "Feastables", price: 18.9 }
+  ];
+
+  const itemsDiv = document.getElementById('items');
+  const statusDiv = document.getElementById('status');
+
+  PRODUCTS.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        
+        let imageHtml = '';
+        if (p.id === 'coke') {
+             imageHtml = '<img src="cola.png" alt="Cola Bottle" class="product-image">';
+         }
+         if (p.id === 'chips') {
+             imageHtml = '<img src="th.png" alt="Oman Chips" class="product-image">';
+         }
+         if (p.id === 'choco') {
+             imageHtml = '<img src="choco.jpeg" alt="Feastables" class="product-image">';
+         } 
+
+        card.innerHTML = `<strong>${p.name}</strong>${imageHtml}<div>RM${p.price.toFixed(2)}</div>`;
+        
+        const btn = document.createElement('button');
+        btn.textContent = 'Dispense';
+        btn.onclick = () => dispense(p.id, p.name);
+        card.appendChild(btn);
+        itemsDiv.appendChild(card);
+    });
+
+    async function dispense(itemId, prettyName) {
+        statusDiv.textContent = `Dispensing ${prettyName}...`;
+
+        try {
+            const resp = await fetch(`${PI_BASE}/dispense?item=${encodeURIComponent(itemId)}`, {
+                method: 'GET',
+                mode: 'cors',
+                headers: {
+                    'ngrok-skip-browser-warning': '1'
+                }
+            });
+
+            const text = await resp.text();
+            statusDiv.textContent = `Response: ${text}`; 
+        } catch (err) {
+            statusDiv.textContent = 'Error: ' + err.message;
+        }
+    }
+  </script>
+<footer id="main-footer">
+    <p> &copy; UCSI Vending Machine Project (2025-2026)</p>
+        <p>Coded By:</p>
+        <ul class="credits-list">
+            <li>Muqrin Al Said</li>
+            <li>Mohamed Tali Nuri</li>
+        </ul>
+        <br>
+        <p>Hosted By</p>
+        <ul class="credits-list">
+            <li><i><b>MTTKN.COM</b></i></li>
+        </ul>
+    </footer>
+</body>
+</html>

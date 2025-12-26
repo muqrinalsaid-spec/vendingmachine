@@ -1,0 +1,103 @@
+    /* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 30px;
+    max-width: 1200px; /* INCREASED: Makes the main content area much wider */
+    margin: auto;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 40px; /* Increased margin */
+    font-size: 2.5em; /* Larger title */
+}
+/* Footer */
+#main-footer {
+    /* Appearance and Positioning */
+    width: 100%;
+    margin-top: 50px; 
+    padding: 15px 0;
+    
+    background-color: #f4f4f9; 
+    
+    text-align: center;
+    color: #888; 
+    border-top: 1px solid #ddd; 
+}
+
+/* Style for the "Coded By:" line */
+#main-footer p {
+    font-size: 0.9em;
+    margin-bottom: 5px; /* Add a little space below "Coded By:" */
+}
+
+/* Style the Unordered List (the names) */
+.credits-list {
+    list-style: none; /* REMOVE the default bullet points */
+    padding: 0; /* Remove default padding that pushes the list right */
+    margin: 0 auto 10px auto; /* Center the list horizontally, add space at the bottom */
+    width: fit-content; /* Only take up the width of the content */
+}
+
+/* Style for the individual names */
+.credits-list li {
+    font-size: 0.85em; 
+    line-height: 1.4; /* Space out the names vertically */
+}
+
+/* Style the Unordered List (the names) */
+.colab-list {
+    padding: 0; /* Remove default padding that pushes the list right */
+    margin: 0 auto 10px auto; /* Center the list horizontally, add space at the bottom */
+    width: fit-content; /* Only take up the width of the content */
+}
+
+/* Style for the individual names */
+.colab-list li {
+    font-size: 0.85em; 
+    line-height: 1.4; /* Space out the names vertically */
+}
+
+
+/* --- Taskbar/Navigation Styles --- */
+.taskbar {
+    width: 25%;
+    padding: 0;
+    margin-bottom: 30px; /* Space between the taskbar and the H1 */
+}
+
+.taskbar ul {
+    list-style: none; /* Remove bullets */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Arrange list items horizontally */
+    justify-content: center; /* Center the options in the taskbar */
+}
+
+.taskbar li {
+    margin: 0;
+}
+
+.taskbar a {
+    display: block;
+    padding: 15px 30px;
+    text-decoration: none;
+    color: #34495e; /* Dark text color */
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.taskbar a:hover {
+    background-color: #ecf0f1; /* Light hover background */
+    color: #2c3e50;
+}
+
+/* Style for the currently active link (Vending) */
+.taskbar a.active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    color: #3498db; /* Highlight color (matches the price color) */
+    border-bottom: 3px solid #3498db; /* Visual underline for active tab */
+}
